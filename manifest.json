@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Paddle Vendor Page Enhancer",
+  "version": "1.0",
+  "description": "隐藏 vendors.paddle.com 页面左上角的数字",
+  "permissions": ["activeTab", "storage", "tabs"],
+  "content_scripts": [
+    {
+      "matches": ["*://vendors.paddle.com/*"],
+      "css": ["styles.css"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false
+  },
+  "icons": {
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+} 

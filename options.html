@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Paddle Vendor Page Enhancer 设置</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --primary-color: #007AFF;
+      --secondary-color: #5AC8FA;
+      --background-color: #F5F5F7;
+      --card-background: #FFFFFF;
+      --text-color: #1D1D1F;
+      --secondary-text-color: #86868B;
+      --border-color: #E5E5EA;
+      --success-color: #34C759;
+      --focus-ring: rgba(0, 122, 255, 0.3);
+      --border-radius: 10px;
+      --spacing-small: 8px;
+      --spacing-medium: 16px;
+      --spacing-large: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      line-height: 1.5;
+      margin: 0;
+      padding: var(--spacing-large);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: var(--card-background);
+      border-radius: var(--border-radius);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      padding: var(--spacing-large);
+    }
+
+    h1 {
+      color: var(--text-color);
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: var(--spacing-large);
+      padding-bottom: var(--spacing-medium);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .form-group {
+      margin-bottom: var(--spacing-large);
+    }
+
+    label {
+      display: block;
+      margin-bottom: var(--spacing-small);
+      font-weight: 500;
+      font-size: 15px;
+      color: var(--text-color);
+    }
+
+    .slider-container {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-medium);
+      margin-bottom: var(--spacing-small);
+    }
+
+    input[type="range"] {
+      flex: 1;
+      -webkit-appearance: none;
+      height: 4px;
+      background: var(--border-color);
+      border-radius: 2px;
+      outline: none;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      background: var(--primary-color);
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    input[type="range"]::-webkit-slider-thumb:hover {
+      background: var(--secondary-color);
+      transform: scale(1.1);
+    }
+
+    input[type="range"]:focus {
+      box-shadow: 0 0 0 3px var(--focus-ring);
+    }
+
+    .value-display {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 40px;
+      height: 28px;
+      background-color: var(--primary-color);
+      color: white;
+      font-weight: 500;
+      border-radius: 14px;
+      padding: 0 var(--spacing-small);
+      font-size: 14px;
+    }
+
+    .description {
+      font-size: 13px;
+      color: var(--secondary-text-color);
+      margin-top: var(--spacing-small);
+    }
+
+    .color-preview {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      border: 1px solid var(--border-color);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+
+    button {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 500;
+      transition: background-color 0.2s, transform 0.1s;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: var(--secondary-color);
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    .status {
+      margin-top: var(--spacing-large);
+      padding: var(--spacing-medium);
+      border-radius: var(--border-radius);
+      display: none;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .success {
+      background-color: var(--success-color);
+      color: white;
+    }
+
+    .footer {
+      margin-top: var(--spacing-large);
+      text-align: center;
+      font-size: 13px;
+      color: var(--secondary-text-color);
+    }
+
+    .color-picker-container {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-medium);
+      margin-bottom: var(--spacing-small);
+    }
+
+    input[type="color"] {
+      -webkit-appearance: none;
+      width: 40px;
+      height: 40px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    input[type="color"]::-webkit-color-swatch-wrapper {
+      padding: 0;
+      border-radius: 6px;
+    }
+
+    input[type="color"]::-webkit-color-swatch {
+      border: none;
+      border-radius: 6px;
+    }
+
+    .reset-button {
+      background-color: var(--secondary-text-color);
+      margin-top: var(--spacing-medium);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Paddle Vendor Page Enhancer</h1>
+
+    <div class="form-group">
+      <label for="maskOpacity">遮罩透明度</label>
+      <div class="slider-container">
+        <input type="range" id="maskOpacity" min="0" max="100" value="100">
+        <span id="maskOpacityValue" class="value-display">100%</span>
+        <div class="color-preview" id="maskPreview"></div>
+      </div>
+      <p class="description">调整遮罩的透明度，0表示完全透明，100表示完全不透明</p>
+    </div>
+
+    <div class="form-group">
+      <label for="maskColor">遮罩颜色</label>
+      <div class="color-picker-container">
+        <input type="color" id="maskColor" value="#808080">
+        <span id="maskColorValue" class="value-display">#808080</span>
+      </div>
+      <p class="description">选择遮罩的颜色，默认为灰色</p>
+    </div>
+
+    <button id="save">保存设置</button>
+    <button id="reset" class="reset-button">重置为默认设置</button>
+
+    <div id="status" class="status"></div>
+
+    <div class="footer">
+      <p>Paddle Vendor Page Enhancer © 2023</p>
+    </div>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+
+</html>
